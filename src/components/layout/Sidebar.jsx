@@ -1,12 +1,16 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import {
   FaChevronDown,
   FaInbox,
   FaRegCalendarAlt,
   FaRegCalendar,
 } from "react-icons/fa";
+import { useSelectedProjectValue } from "../../context";
 const Sidebar = () => {
+  const { setSelectedProject } = useSelectedProjectValue();
+  const [active, setActive] = useState("inbox");
+  const [showProjects, setShowProjects] = useState(true);
   return (
     <div className="sidebar" data-testid="sidebar">
       <ul className="sidebar__generic">
