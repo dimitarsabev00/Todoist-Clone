@@ -9,6 +9,7 @@ import {
   collatedTasksExist,
 } from "../utilities/helpers";
 import { useSelectedProjectValue, useProjectsValue } from "../context";
+import AddTask from "./AddTask";
 const Tasks = () => {
   const { selectedProject } = useSelectedProjectValue();
   const { projects } = useProjectsValue();
@@ -44,6 +45,7 @@ const Tasks = () => {
           </li>
         ))}
       </ul>
+      <AddTask />
     </div>
   );
 };
