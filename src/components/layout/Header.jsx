@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { FaMoon } from "react-icons/fa";
 
 import Logo from "../../assets/logo.png";
-const Header = () => {
+const Header = ({ darkMode, setDarkMode }) => {
   return (
     <header className="header">
       <nav>
@@ -18,7 +19,11 @@ const Header = () => {
               </button>
             </li>
             <li className="settings__darkmode">
-              <button aria-label="Darkmode on/off" type="button">
+              <button
+                aria-label="Darkmode on/off"
+                type="button"
+                onClick={() => setDarkMode(!darkMode)}
+              >
                 <FaMoon />
               </button>
             </li>
