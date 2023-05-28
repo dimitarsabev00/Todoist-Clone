@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import Tasks from "../Tasks";
 import Sidebar from "./Sidebar";
 
 const Content = () => {
   return (
-    <div>
+    <section className="content">
       <Sidebar />
-    </div>
+      <Tasks />
+    </section>
   );
 };
 
