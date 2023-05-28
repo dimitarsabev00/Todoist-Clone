@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { doc, updateDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../configs/firebase";
 const Checkbox = ({ id, taskDesc }) => {
   const archiveTask = async () => {
     try {

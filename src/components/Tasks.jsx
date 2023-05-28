@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
-import { Checkbox } from "./Checkbox";
+import Checkbox from "./Checkbox";
 import { useTasks } from "../hooks/useTasks";
 
 const Tasks = () => {

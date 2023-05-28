@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { collection, query, where, onSnapshot } from "firebase/firestore";
 import { db } from "../configs/firebase";
-import { collatedTasksExist } from "../helpers";
+import { collatedTasksExist } from "../utilities/helpers";
 import moment from "moment";
 
 export const useTasks = (selectedProject) => {
