@@ -31,9 +31,9 @@ const AddProject = ({ shouldShow = false }) => {
   };
 
   return (
-    <div className="add-project" data-testid="add-project">
+    <div className="add-project">
       {show && (
-        <div className="add-project__input" data-testid="add-project-inner">
+        <div className="add-project__input">
           <input
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
