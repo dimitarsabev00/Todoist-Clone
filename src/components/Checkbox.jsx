@@ -19,7 +19,6 @@ const Checkbox = ({ id, taskDesc }) => {
   return (
     <div
       className="checkbox-holder"
-      data-testid="checkbox-action"
       onClick={() => archiveTask()}
       onKeyDown={(e) => {
         if (e.key === "Enter") archiveTask();

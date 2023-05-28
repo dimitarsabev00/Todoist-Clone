@@ -12,21 +12,21 @@ const Sidebar = () => {
   const [active, setActive] = useState("inbox");
   const [showProjects, setShowProjects] = useState(true);
   return (
-    <div className="sidebar" data-testid="sidebar">
+    <div className="sidebar">
       <ul className="sidebar__generic">
-        <li data-testid="inbox" className={"inbox"}>
+        <li className={"inbox"}>
           <span>
             <FaInbox />
           </span>
           <span>Inbox</span>
         </li>
-        <li data-testid="today" className={"today"}>
+        <li className={"today"}>
           <span>
             <FaRegCalendar />
           </span>
           <span>Today</span>
         </li>
-        <li data-testid="next_7" className={"next_7"}>
+        <li className={"next_7"}>
           <span>
             <FaRegCalendarAlt />
           </span>
