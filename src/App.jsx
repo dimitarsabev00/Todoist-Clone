@@ -3,15 +3,20 @@ import React from "react";
 import Header from "./components/layout/Header";
 import Content from "./components/layout/Content";
 import { useSelector } from "react-redux";
+import { ProjectsProvider, SelectedProjectProvider } from "./context";
 
 const App = () => {
   const testState = useSelector(({ generalSlice }) => generalSlice.testState);
   console.log(testState);
   return (
-    <>
-      <Header />
-      <Content />
-    </>
+    <SelectedProjectProvider>
+      <ProjectsProvider>
+        <main>
+          <Header />
+          <Content />
+        </main>
+      </ProjectsProvider>
+    </SelectedProjectProvider>
   );
 };
 
