@@ -3,6 +3,7 @@
 import React from "react";
 import { useState } from "react";
 import { useProjectsValue, useSelectedProjectValue } from "../context";
+import IndividualProject from "./IndividualProject";
 
 const Projects = ({ activeValue = null }) => {
   const [active, setActive] = useState(activeValue);
@@ -36,7 +37,7 @@ const Projects = ({ activeValue = null }) => {
             }
           }}
         >
-          {/* IndividualProject Component Here */}
+          <IndividualProject project={project} />
         </div>
       </li>
     ))
