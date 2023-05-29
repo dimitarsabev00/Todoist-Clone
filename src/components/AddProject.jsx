@@ -1,9 +1,17 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  where,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import { useProjectsValue } from "../context";
 import { db } from "../configs/firebase";
 import { generatePushId } from "../utilities/helpers";
+import moment from "moment";
 
 const AddProject = ({ shouldShow = false }) => {
   const [show, setShow] = useState(shouldShow);
@@ -11,16 +19,27 @@ const AddProject = ({ shouldShow = false }) => {
 
   const projectId = generatePushId();
   const { projects, setProjects } = useProjectsValue();
-
   const addProject = () => {
     if (projectName) {
       addDoc(collection(db, "projects"), {
         projectId,
         name: projectName,
         userId: "jlIFXIwyAL3tzHMtzRbw",
+        createdAt: moment().toISOString(),
       })
-        .then(() => {
-          setProjects([...projects]);
+        .then(async () => {
+          const projectsCollection = collection(db, "projects");
+          const userIdQuery = where("userId", "==", "jlIFXIwyAL3tzHMtzRbw");
+          const orderedQuery = orderBy("projectId");
+          const combinedQuery = query(
+            projectsCollection,
+            userIdQuery,
+            orderedQuery
+          );
+          const querySnapshot = await getDocs(combinedQuery);
+          const documents = querySnapshot.docs.map((doc) => doc.data());
+
+          setProjects(documents);
           setProjectName("");
           setShow(false);
         })

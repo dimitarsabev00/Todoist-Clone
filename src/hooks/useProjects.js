@@ -33,7 +33,7 @@ export const useProjects = () => {
     };
 
     fetchProjects();
-  }, [projects]);
+  }, []);
 
   return { projects, setProjects };
 };
